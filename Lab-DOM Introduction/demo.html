@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Part I</title>
+</head>
+
+<body>
+    <h1 id="heading">Hello DOM!</h1>
+    <ul>
+        <li>BMV</li>
+        <li>Mercedes</li>
+        <li id="change-car">Audi</li>
+    </ul>
+
+    <!-- -------- 1 ВАРИАНТ -->
+    <!-- onclick е атрибут в HTML и в него може да пишем JS, но не е добра практика. Командата тук се изпълнява при всяко натискане на бутона Send  -->
+    <!-- <button onclick="let name = 'Pesho'; console.log('click')">Send</button> -->
+
+    <!-- -------- 2 ВАРИАНТ -->
+    <!-- правилния подход за изпълнение на JS е чрез script. Тук командата се изпълнява при зареждането на страницата -->
+    <!-- <script>
+        let firstName = 'Pesho';
+        console.log(firstName);  
+    </script> -->
+
+    <!-- ---------- 3 ВАРИАНТ -->
+    <!-- комбинация между onclick и script. Когато кликнем - искаме да изпълним функцията  -->
+    <!-- <button onclick="onButtonClick()">Send</button>
+    <button onclick="onButtonSecondClick()">Second</button>
+
+    <script>
+        function onButtonClick() {
+            let firstName = 'Pesho';
+            console.log(firstName);
+        }
+
+        // CHANGE TITLE 
+    let headingElement = document.getElementById('heading'); //селектираме елемент по id (чрез document достъпваме до DOM дървото)
+    headingElement.textContent = 'Hello from JS'; //на всеки DOM елемент мога да извиква textContent, за да извършвам корекция в текста
+    </script> -->
+
+    <!-- ----------- 4 ВАРИАНТ  -->
+    <!-- Външно в отделен файл. Зарежда се, когато стартираме страницата.-->
+    <!-- <script src="demo.js"></script> -->
+
+
+    <!-- ------ПЪРВА АПЛИКАЦИ - при натискане на бутона, да се промени името на заглавието -->
+    <button onclick="changeTitle()">title</button>
+    <button onclick="changeCar()">Car</button>
+
+    <script>
+        function changeTitle() {
+            let titleElement = document.getElementById('heading');
+            titleElement.textContent = 'Hello from JS'; //пример за textContent - ако тук към JS сложим <em>JS</em> - тагът <em> ще излезе на браузъра
+            titleElement.innerHTML = 'Hello from <em>JS</em>'; //пример за innerHTML
+
+        }
+
+        function changeCar() {
+            let carElement = document.getElementById('change-car');
+            carElement.textContent = 'AUDI QATRO';
+        }
+    </script>
+
+    <!-- TEXTCONTENT (textContent) - използваме, когато правим корекция в текста и искаме тя да се вижда на браузъра.
+        textContent взима текстовото съдържание и премахва излишното
+      -- INNERHTML (innerHTML) - използваме, когато НЕ искаме да се вижда направената корекция върху текста на браузъра -->
+
+    <!-- Script-овете се пишат под целия код, преди затварящия таг на <body> -->
+        
+    </body>
+</body>
+
+</html>

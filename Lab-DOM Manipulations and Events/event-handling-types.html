@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!------ Начини за закачане на event -->
+
+    <h1>Event Handling Type</h1>
+
+    <h2>Container</h2>
+
+    <div id="number">0</div>
+
+    <button onclick="clearCounter()">Clear</button>
+    <button id="increment">+</button>
+    <button id="decrement">-</button>
+
+    <script>
+        let numberElement = document.getElementById('number');
+        let incrementButtonElement = document.getElementById('increment');
+        let decrementButtonElement = document.getElementById('decrement');
+
+
+        //1. Attach evenhandrel by even attribute
+        function clearCounter() {
+            numberElement.textContent = 0;
+        };
+
+        //2. Attach eventhandler by even property - през самия елемент . нещо си, да е равно на функцията(функцията може да е различен вид от arrow)
+        incrementButtonElement.onclick = () => {
+            let currentElement = Number(numberElement.textContent);
+            numberElement.textContent = currentElement + 1;
+        };
+
+        //3. Attach evenListener/evenhandler by metod - prefered
+        decrementButtonElement.addEventListener('click', function () {
+            let currentElement = Number(numberElement.textContent);
+            numberElement.textContent = currentElement - 1;
+        });      
+    </script>
+</body>
+
+</html>

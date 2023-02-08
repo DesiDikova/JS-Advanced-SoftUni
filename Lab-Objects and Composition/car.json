@@ -1,0 +1,19 @@
+{
+    "model": "BMW",
+    "year": 2010, 
+    "facelift": true,
+    "owner": {
+        "name": "'Pesho'",
+        "age": 30                 
+    },
+    "exstras": [  
+        "climatronic",
+        "climatronic",
+        "climatronic"
+    ],
+    "exstrasTwo": [  
+        {"name": "climatronic", "price": 2000},
+        {"name": "climatronic", "price": 2000},
+        {"name": "climatronic", "price": 2000}
+    ]
+}

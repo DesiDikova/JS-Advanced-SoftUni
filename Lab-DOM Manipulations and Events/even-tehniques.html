@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="text" style="background-color: white;color: black;padding: 50px;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis id cumque temporibus voluptatibus
+        reiciendis esse suscipit. Reiciendis exercitationem consequatur labore rerum magni tenetur illum, corrupti,
+        beatae quidem consectetur, ipsum voluptatem!
+    </div>
+
+    <!-- //Furst example -->
+    <input type="text" id="some-text" />
+    <button id="some-button" disabled>Send</button>
+
+    <script>
+        let divTextElement = document.getElementById('text');
+
+        const textMouseOverHandler = (e) => {
+            let backgroundColor = e.currentTarget.style.backgroundColor;
+            if (backgroundColor === 'black') {
+                e.currentTarget.style.backgroundColor = 'white';
+                e.currentTarget.style.color = 'black';
+            } else {
+                e.currentTarget.style.backgroundColor = 'black';
+                e.currentTarget.style.color = 'white';
+            }
+        };
+
+        divTextElement.addEventListener('mouseover', textMouseOverHandler);
+
+        // Second example
+        let inputSomeTextElement = document.getElementById('some-text');
+        let buttonElement = document.getElementById('some-button');
+        inputSomeTextElement.addEventListener('input', (e) => {
+            if (e.currentTarget.value.length > 0) {
+                buttonElement.removeAttribute('disabled');
+            } else {
+                buttonElement.setAttribute('disabled', true);
+            }
+        });
+
+        //Third example
+        buttonElement.addEventListener('click', () => {
+            divTextElement.removeEventListener('mouseover', textMouseOverHandler);            
+        });
+
+        //Four example
+        buttonElement.addEventListener('click', () => {
+            divTextElement.textContent = inputSomeTextElement.value
+        });
+
+    </script>
+</body>
+
+</html>

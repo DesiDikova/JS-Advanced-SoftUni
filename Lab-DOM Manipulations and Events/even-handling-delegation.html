@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DOM Events | Movie List</h1>
+
+    <!-- Even deligation взима по голямо парче и работи върх него -->
+    <ul id="movie-list">
+        <li>The matrix</li>
+        <li>The Lord of the Rings</li>
+        <li>Chronicles of Narnia</li>
+        <li>Man of Steel</li>
+        <li>The Case for Chirst</li>
+    </ul>
+
+    <script>
+        let movieElements = document.getElementById('movie-list');
+
+        movieElements.addEventListener('click', (e) => {
+            console.log('Clicked element:');
+            console.log(e.target);
+            console.log('Even attached element:');
+            console.log(e.currentTarget);
+            // console.log(e.target.tagName); //показва името на тага
+
+            if (e.target.tagName === 'LI') {
+                e.target.style.textDecoration = 'line-through';
+            }
+        });
+    </script>
+</body>
+
+</html>

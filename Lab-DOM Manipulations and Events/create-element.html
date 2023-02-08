@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Movie List</h1>
+
+    <ul id="movie-list">
+        <li>The matrix</li>
+    </ul>
+
+    <script>
+        //1. Взимам референция към съществуващия елемент, който го има вече в дървото.
+        //2. Създаваме нов елемент в паметта, но той все още не се вижда в DOM дървото.
+        //3. Модифицираме елемента, т.е. прикрепяме към него различни характеристики, текст, стил и други...
+        //4. Закрепяме новосъздадения елемент в края на дървото.
+        //5. Клониране на елемент - 
+            //.cloneNode() - ако скобите са празни - клонираме само конкретния елемент; при deep - клонира в дълбочина (на елемента всички под елементи).
+        //6. закачаме копието най-отпред чрез метода prepend.
+        let ulElement = document.getElementById('movie-list');  //1.
+        let movieLiElement = document.createElement('li');  //2.
+        movieLiElement.textContent = 'Man of steel';  //3.
+
+        let copyLiElement = movieLiElement.cloneNode(true); //5.
+        copyLiElement.textContent += ' II';
+        
+        ulElement.appendChild(movieLiElement);  //4.
+        ulElement.prepend(copyLiElement);  //6.
+    </script>
+</body>
+
+</html>

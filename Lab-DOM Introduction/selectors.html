@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Selectors</title>
+</head>
+
+<!-- Методи за бързо намиране на даден елемент в цялото DOM дърво:
+1. getElementById - взима елемент чрез id-то, което трябва да е уникално за целата HTML страница;
+2. getElementsByClassName - взима елементИ чрез техния class, който може да се слага на повече от един елементи в цялатаа HTML страница; 
+3. getElementsByTagName - селектира всички елементи по Tag;
+4. querySelector - връща първият CSS селектор;
+5. querySelectorAll - връща всички селектори, които отговарят на търсенето  
+
+Селектори:
+:nth-of-type(); пр.: ('tr:nth-of-type(2n) td') - дай ми всеки втори тейбълроуд и ми дай неговите тейбълдати
+-->
+getElementsByTagName
+
+<body>
+    <h1 id="header">DOM Selectors</h1>
+    <p class="fancy-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt minima,
+        qui soluta error rem accusantium deserunt at libero dolore distinctio nam
+        commodi fuga tenetur voluptatibus eum corporis amet, totam mollitia?</p>
+    <ul>
+        <li class="fancy-text">Some phrase here</li>
+        <li>Secon phrase</li>
+    </ul>
+    <ol>
+        <li>Other list item</li>
+    </ol>
+
+    <script>
+        //------ getElementById
+        let headerElement = document.getElementById('header');
+        console.log(headerElement);
+
+        // В браузъра, в конзолата се връща HTMLCollection, който е нещо подобно на масив (но не точно); 
+        // има дължина и може да се достъпват отделните елементи като индекси
+        
+        //------ getElementsByClassName
+        let textElements = document.getElementsByClassName('fancy-text');
+        console.log(textElements);
+        console.log(textElements[0]);
+        console.log(textElements[1]);
+
+        //------- getElementsByTagName
+        let liElements = document.getElementsByTagName('li');
+        console.log(liElements);
+
+        // ------ querySelector: .-class; #-id - използва CSS селектори и взима само първият, който намери
+        let fancyParagrah = document.querySelector('p.fancy-text');
+
+        //------- querySelectorAll - в примера: върни ми всички li, които се намират в ul. В браузъра ги връща в NodeList
+        let unOrderedLiElements = document.querySelectorAll('ul li');
+        console.log(unOrderedLiElements);
+    </script>
+</body>
+
+</html>
